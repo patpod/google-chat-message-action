@@ -1,0 +1,14 @@
+name: "Send Google Chat Message"
+description: "Sends a given message to a Google Chat room"
+author: "Patrick Podbregar <patrick.podbregar@gmail.com>"
+inputs:
+  webhook:
+    description: "The webhook for the Google Chat room"
+    required: true
+  message:
+    description: "The message to send"
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        curl -H 'Content-Type: application/json; charset=UTF-8' -X POST -d "{\"text\": \"${{ inputs.message }}\"}" ${{ input.webhook }}

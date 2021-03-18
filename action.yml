@@ -11,4 +11,5 @@ runs:
   using: "composite"
   steps:
     - run: |
-        curl -H 'Content-Type: application/json; charset=UTF-8' -X POST -d "{\"text\": \"${{ inputs.message }}\"}" ${{ input.webhook }}
+        curl -H 'Content-Type: application/json; charset=UTF-8' -X POST -d "{\"text\": \"${{ inputs.message }}\"}" ${{ inputs.webhook }}
+      shell: bash
